@@ -1,0 +1,53 @@
+{
+	"name": "BLACKBIRD Technology",
+	"short_name": "BLACKBIRD",
+	"description": "Darwin's ICT Solutions and Services",
+	"lang": "en-US",
+	"start_url": ".",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#ececec",
+	"theme_color": "#0e0e0e",
+	"icons": [
+		{
+			"src": "assets/images/bbt-72x72.png",
+			"sizes": "72x72",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/images/bbt-96x96.png",
+			"sizes": "96x96",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/images/bbt-128x128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/images/bbt-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/images/bbt-152x152.png",
+			"sizes": "152x152",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/images/bbt-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/images/bbt-384x384.png",
+			"sizes": "384x384",
+			"type": "image/png"
+		},
+		{
+			"src": "assets/images/bbt-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
