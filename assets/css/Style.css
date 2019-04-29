@@ -67,7 +67,20 @@ header {
 }
 
 #active {
+  animation: 2s pulse infinite;
   color: #1972A4;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #1cb5f2;
+  }
+  50% {
+    -webkit-box-shadow: 0 0 0 2px #1cb5f2;
+  } 
+  100% {
+    -webkit-box-shadow: 0 0 0 0 #1cb5f2;
+  }
 }
 
 .bottom-header .navigation a {
@@ -374,6 +387,25 @@ th {
 
 .product-action-3 {
   background: #c9c5c2;
+}
+
+.register-form form {
+  margin: auto;
+  display: grid;
+  grid-row-gap: 5px;
+  width: 100%;
+}
+
+.register-form input {
+  height: 4vh;
+}
+
+.register-form input[type="text"] {
+  font-size: 24px;
+}
+
+#submit {
+  width: 30%;
 }
 
 /*Modal*/
@@ -782,6 +814,10 @@ footer {
 
   .gimp {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .register-form form {
+    width: 35%;
   }
 }
 
