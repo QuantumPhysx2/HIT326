@@ -5,7 +5,7 @@ $dbHost = "localhost";
 $dbPort = 3307;
 $dbName = "hit326";
 $dbUsername = "root";
-$dbPassword = "@BigBaus123";
+$dbPassword = "";
 
 // Attempt connection to database
 try {
