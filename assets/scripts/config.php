@@ -8,7 +8,7 @@ $dbHost = "localhost";
 $dbPort = 3307;
 $dbName = "product";
 $dbUsername = "root";
-$dbPassword = "@BigBaus123";
+$dbPassword = "";
 
 try {
     // Initiate a new PHP Data Objects connection with specified parameters
