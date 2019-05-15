@@ -1,59 +1,65 @@
-<?php
-if(!empty($_GET['search'])&&!empty($_GET['category'])){
-   $search = htmlspecialchars($_GET['search'],ENT_QUOTES, 'UTF-8');
-   $category = htmlspecialchars($_GET['category'],ENT_QUOTES, 'UTF-8');
-   echo "<h2>Searched for {$search}</h2>";
+<!doctype html>
+<html>
+  <?php require __DIR__."/head.php";?>
+  <body>
+    <?php require __DIR__."/header.php";?>
+    <?php
+    if(!empty($_GET['search'])&&!empty($_GET['cate'])){
+           $cate=$_GET['cate'];
+           $search=$_GET['search'];
+           $db = new PDO("mysql:host=localhost;dbname=$cate", 'root','');
+           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           $query = "SELECT * FROM $cate WHERE NAME LIKE '%" .$search. "%'";
+           $statement = $db->prepare($query);
+           $binding = array($search);
+           $statement -> execute($binding);
+           $result = $statement->fetchall(PDO::FETCH_ASSOC);
+           $array = $db->Query($query);
+           $columnname = $db->Query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA ='$cate'");
+           if(!empty($result)){
+    ?>
+           <div class="container">
+             <?php echo "<h2>Search keyword \"{$search}\" in {$cate}</h2>"; ?>
+             <table class="table table-striped mt-4 table-bordered">
+               <thead class='thead-dark'>
+                 <tr>
+                  <?php
+                    foreach ($columnname as $value) {
+                      echo "<th>$value[0]</th>";
+                    }
+                    echo "<th>Option</th>";
+                  ?>
+                 </tr>
+               </thead>
+               <?php
+               foreach ($array as $key ){
+                 $size = sizeof($key);
+                 $halfsize = $size/2;
+                 echo "<tr>";
+                 for ($i=0; $i < $halfsize ; $i++) {
+                   echo "<td>{$key[$i]}</td>";
+                 }
+                 echo "<td><a href='addtocart_search.php?itemno={$key[0]}&cate={$cate}&search={$search}'><button type='button' class='btn btn-primary'>Add to cart</button></a></td>";
 
-   try{
-       $db = new PDO("mysql:host=localhost;dbname=$category", 'root','');
-       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $query = "SELECT * FROM $category WHERE GPUname LIKE '%" . $search . "%'";
+                 echo "</tr>";
 
-
-       $statement = $db->prepare($query);
-       $binding = array($search);
-       $statement -> execute($binding);
-       $result = $statement->fetchall(PDO::FETCH_ASSOC);
-       $array = $db->Query($query);
-       if(!empty($result)){
-         ?>
-
-        <table border="1" width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <th>Name</th>
-            <th>Base Clock (MHz)</th>
-            <th>Boost Clock (MHz)</th>
-            <th>Vram (GB)</th>
-            <th>Memory Type</th>
-            <th>Price1</th>
-            <th>Price</th>
-          </tr>
-          <?php
-            foreach ($array as $key ) {
-             echo "<tr>
-                    <td>{$key[1]}</td>
-                    <td>{$key[2]}</td>
-                    <td>{$key[3]}</td>
-                    <td>{$key[4]}</td>
-                    <td>{$key[5]}</td>
-                    <td>{$key[6]}</td>
-                    <td>{$key[7]}</td>
-                    <td><a href='add.php?itemNo={$key[0]}'>Buy</a></td>
-                   </tr>" ;
-            }
-          ?>
-        </table>
-<?php
+               }
+               ?>
+             </table>
+           </div>
+    <?php
+           }
+           else{
+             echo "
+             <div class='container mt-5'>
+              <h1>No results</h1>
+             </div>";
+           }
        }
-       else{
-         echo "<p>No results</p>";
-       }
-   }
-   catch(PDOException $e){
-       echo "<h2>Error with database because: {$e->getMessage()}</h2>";
-   }
-}
-else{
-   echo "<p>Type an other name.</p>";
-}
-?>
+
+    else{
+       echo "<div class='container mt-3'><h1> Please select a category</h1></div>";
+    }
+    ?>
+  </body>
+</html>

@@ -112,72 +112,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="author" content="HIT326">
-        <meta name="description" content="HIT326">
-        <meta name="keywords" content="Products">
-        <meta name="theme-color" content="#222">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="icon" href="assets/images/page-icon.ico">
-        <title>Home | PC Buy Here</title>
-    </head>
+
+  <?php require __DIR__."/head.php"; ?>
+  <title>Home | PC Buy Here</title>
 
     <body>
-        <header>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.php"><i class="fas fa-desktop"></i> PC Buy Here</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav  mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#"><i class="fa fa-cart-plus" title="Marketplace"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa fa-bell-o" title="Icon 2"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa fa-bell-o" title="Icon 3"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa fa-bell-o" title="Icon 4"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa fa-bell-o" title="Icon 5"></i></a>
-                </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
-                 <input class="form-control mr-sm-2" type="text" id="search" name="search" />
-                 <select class="custom-select custom-select-sm mr-2" name="category">
-                    <option value="">Choose catagory</option>
-                    <option value="Graphics">GPU</option>
-                    <option value="RAM">RAM</option>
-                 </select>
-                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </div>
-          </nav>
-        </header>
+      <?php require __DIR__."/header.php"; ?>
 
         <main>
-            <div class="container mt-4">
+            <div class="container mt-3">
                 <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                     <input type="text" name="inp_USERNAME" placeholder="Username" required>
                     <input type="password" name="inp_PASSWORD" placeholder="Password" required>
                     <input type="password" name="inp_CONFIRMPASSWORD" placeholder="Confirm Password" required>
                     <button type="submit" name="inp_REGISTER" id="register-button">Register</button>
                 </form>
-                <form action="search.php" method="GET">
-                   <label for="search">Search</label>
-                   <input type="text" id="search" name="search" />
-                   <select name="category">
-                    	<option value="">Choose catagory</option>
-                    	<option value="Graphics">GPU</option>
-                    	<option value="RAM">RAM</option>
-                   </select>
-                   <input type="submit" value="Submit">
-              	</form>
+
 
                 <div class="result">
                     <?php if ($falseRegistration): ?>
