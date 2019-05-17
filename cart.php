@@ -14,7 +14,7 @@
           echo "<h1>SHOPPING CART IS EMPTY.</h1>";
 
         }else {
-          echo "<h1>Your shopping cart</h1>";
+          echo "<h1>YOUR SHOPPING CART</h1>";
           echo "
           <table class='table table-striped mt-4 table-bordered'>
             <!-- print column name of table -->
@@ -54,11 +54,12 @@
                   $total = $total + $valuee[$price]*$value[2];
               }
               echo "<td>$value[2]</td>";
-              echo "<td><a href='cartdelete.php?list=$key'>Delete</a></td>";
+              echo "<td><a href='cart.delete.item.php?list=$key'>Delete</a></td>";
               echo "</tr>";
             }}
             echo "</table>";
-            echo "<div><span><a href='sessiondelete.php'>Clear the shopping cart  </a></span>";
+            echo "<div><span><a href='cart.clear.php'>Clear the shopping cart  </a></span>";
+            echo "<span><a  href='welcome.php'><button type='button' class='btn btn-danger btn-sm float-right'>Checkout</button></a></span>";
             echo "<span class='float-right'><h3>Total price :<mark>$total</mark></h3></span></div>";
           }
         ?>

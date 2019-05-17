@@ -5,20 +5,20 @@
       <ul class="navbar-nav  mr-auto">
         <li class="nav-item">
           <div class="">
-            <a class="nav-link" href="product.php?cate=Graphics">Graphics Cards</a>
+            <a class="nav-link" href="show.product.category.php?cate=Graphics">Graphics Cards</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="product.php?cate=CPU">CPU</a>
+          <a class="nav-link" href="show.product.category.php?cate=CPU">CPU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="product.php?cate=Memory">Memory</a>
+          <a class="nav-link" href="show.product.category.php?cate=Memory">Memory</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
+      <form class="form-inline my-2 my-lg-0" action="show.product.search.php" method="GET">
          <input class="form-control mr-sm-2" type="text" id="search" name="search" />
          <select class="custom-select custom-select-sm mr-2" name="cate">
             <option value="">Choose catagory</option>
@@ -31,8 +31,6 @@
       <?php
         $sum = 0;
         session_start();
-        echo"";
-
         if(empty($_SESSION['cart'])){
           echo "<div>
                   <a class='nav-link' href='cart.php?empty=true'>
@@ -57,8 +55,6 @@
                </div>";
         }
       ?>
-
-
     </div>
   </nav>
 </header>
